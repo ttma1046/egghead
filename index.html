@@ -8,14 +8,14 @@
 	<body>
 		<div ng-app="myApp">
 			<div ng-controller="AvengersCtrl">
-					<input type="text" ng-model="search.character">
+					<input type="text" ng-model="search.$">
 				<table>
-					<tr ng-repeat="avenger in avengers.cast | filter:search">
+					<tr ng-repeat="avenger in avengers.cast | orderBy:'-name' | limitTo:5 | filter:search">
 						<td>
-							{{avenger.name}}
+							{{avenger.name | lowercase}}
 						</td>
 						<td>
-							{{avenger.character}}
+							{{avenger.character | uppercase}}
 						</td>
 						
 					</tr>
