@@ -1,17 +1,17 @@
 var myApp = angular.module('behaviorApp', []);
 
 myApp.directive('enter', function(){
-	return  function(scope, element) {
+	return  function(scope, element, attrs) {
 		element.bind("mouseenter", function() {
-			console.log("I am inside of you!");
+			element.addClass(attrs.enter);
 		});
 	};
 });
 
 myApp.directive('leave', function(){
-	return  function(scope, element) {
+	return  function(scope, element, attrs) {
 		element.bind("mouseleave", function() {
-			console.log("I am leaving on a jet plane!");
+			element.removeClass(attrs.enter);
 		});
 	};
 });
