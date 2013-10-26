@@ -1,19 +1,17 @@
-var myApp = angular.module('superhero', []);
+var myApp = angular.module('behaviorApp', []);
 
-myApp.directive('superman', function(){
-	return {
-		restrict: "A",
-		link: function() {
-			alert("I am working stronger!");
-		}
-	}
+myApp.directive('enter', function(){
+	return  function(scope, element) {
+		element.bind("mouseenter", function() {
+			console.log("I am inside of you!");
+		});
+	};
 });
 
-myApp.directive('flash', function(){
-	return {
-		restrict: "A",
-		link: function() {
-			alert("I am working faster!");
-		}
-	}
+myApp.directive('leave', function(){
+	return  function(scope, element) {
+		element.bind("mouseleave", function() {
+			console.log("I am leaving on a jet plane!");
+		});
+	};
 });
