@@ -6,9 +6,10 @@
 		<link rel="stylesheet" type="text/css" href="css/foundation.css">
 	</head>
 	<body>
-		<div ng-app="behaviorApp">
-			<!-- directive:superman -->
-			<div enter="label" leave>I am content!</div>
+		<div ng-app="twitterApp">
+			<div ng-controller="AppCtrl">
+				<div enter="deleteTweets()">Roll over to load more tweets</div>
+			</div>
 		</div>
 		<script type="text/javascript" src="lib/angular.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
