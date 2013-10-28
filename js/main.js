@@ -1,18 +1,15 @@
-var app = angular.module('choreApp', []);
+var app = angular.module('drinkApp', []);
 
-app.controller("ChoreCtrl", function($scope){
-	$scope.logChore = function(chore) {
-		alert(chore + " is done!");
-	}
+app.controller("AppCtrl", function($scope){
+	$scope.ctrlFlavor = "blackberry"
+	
 })
 
-app.directive('kid', function(){
+app.directive('drink', function(){
 	return {
-		restrict: "E",
-		scope:{
-			done:"&"
+		scope: {
+			flavor:"@"
 		},
-		template:  '<input type="text" ng-model="chore">{{chore}}</input>' +
-		'<div class="button" ng-click="done({chore:chore})">I am done!</div>'
+		template: '<div>{{flavor}}</div>'
 	}
 });
