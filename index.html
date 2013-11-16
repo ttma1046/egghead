@@ -6,13 +6,14 @@
 		<link rel="stylesheet" type="text/css" href="css/foundation.css">
 	</head>
 	<body>
-		<div ng-app="phoneApp">
+		<div ng-app="myApp">
+			<input type="text" ng-model="model.title">
+			<input type="text" ng-model="model.content">
 
-			<div ng-controller="AppCtrl">
-				
-					<div class="button"ng-click="AppCtrl.sayHi()">Click me!</div>
-				
-			</div>
+			<zippy title="{{model.title}}">
+				My content is: {{model.content}}
+			</zippy>
+
 
 		</div>
 		<script type="text/javascript" src="lib/angular.js"></script>
