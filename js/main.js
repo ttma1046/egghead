@@ -1,23 +1,18 @@
-var myApp = angular.module('myApp', []);
+var app = angular.module('app', []);
 
-myApp.directive("dumbPassword", function() {
-	var validElement = angular.element("<div>{{model.input}}</div>");
+app.controller("MyCtrl", ['$scope', '$http', function (b, a) {
+	console.log(b);
+}] );
 
-	this.link = function(scope) {
-		scope.$watch("model.input", function(value){
-			if(value === "password") {
-				validElement.toggleClass("alert-box alert");
-			}
-		})
-	};
+
+	//function ($http, $scope, $parse){
+	//console.log($http);
+//});
+
+app.directive("myDirective", function() {
 	return {
-		restrict:'E',
-		replace:true,
-		template:'<div><input type="text" ng-model="model.input"></div>',
-		compile: function (tElem) {
-			tElem.append(validElement);
-
-			return link;
+		link: function (element, scope, attrs) {
+			// console.log(element);
 		}		
 	};
 });
