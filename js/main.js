@@ -1,14 +1,28 @@
 var app = angular.module('app', []);
 
-app.controller("MyCtrl", ['$scope', '$http', function (b, a) {
-	console.log(b);
-}] );
+app.directive("zippy", function () {
+	return {
+		restrict: "E",
+		transclude:true,
+		scope:{
+			title:"@"
+		},
+		templateUrl: 'zippy.html',
+		link: function(scope) {
+			scope.isContentVisible = false;
+
+			scope.toggleContent = function() {
+				scope.isContentVisible = !scope.isContentVisible;
+			} 
+		}
+	}
+});
 
 
 	//function ($http, $scope, $parse){
 	//console.log($http);
 //});
-
+/*
 app.directive("myDirective", function() {
 	return {
 		link: function (element, scope, attrs) {
@@ -16,3 +30,4 @@ app.directive("myDirective", function() {
 		}		
 	};
 });
+*/
