@@ -1,6 +1,10 @@
 var app = angular.module('app', []);
 
-app.directive("zippy", function () {
+app.run(function($templateCache){
+	$templateCache.put("zippy.html", '<div><h3 ng-click="toggleContent()">{{title}}</h3><div ng-show="isContentVisible" ng-transclude></div></div>');
+});
+
+app.directive("zippy", function ($templateCache) {
 	return {
 		restrict: "E",
 		transclude:true,
@@ -17,17 +21,3 @@ app.directive("zippy", function () {
 		}
 	}
 });
-
-
-	//function ($http, $scope, $parse){
-	//console.log($http);
-//});
-/*
-app.directive("myDirective", function() {
-	return {
-		link: function (element, scope, attrs) {
-			// console.log(element);
-		}		
-	};
-});
-*/
